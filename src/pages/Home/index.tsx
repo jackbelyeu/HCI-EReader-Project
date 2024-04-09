@@ -15,7 +15,7 @@ export const Home = () => {
     <div class={styles.Home}>
       <img prop:src={logo} alt="logo" />
       <h1>Solid + Vite + TypeScript</h1>
-      <button onClick={() => fetchDefinition().then(console.log)} />
+      <button onClick={() => fetchDefinition('fish').then(console.log)} />
       <h3>Hello, {userData()?.name ?? 'guest'}!</h3>
       <p>
         Mouse: {x()} x {y()}
