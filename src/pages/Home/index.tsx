@@ -2,7 +2,7 @@ import { createSignal } from 'solid-js';
 import { useCounter, useMouse } from 'solidjs-use';
 import logo from '@/assets/logo.svg?url';
 import styles from '@/pages/Home/Home.module.scss';
-import { fetchUser, type UserFetchResponse } from '@/services/userService';
+import { fetchUser, fetchDefinition, type UserFetchResponse } from '@/services/userService';
 
 export const Home = () => {
   const { x, y } = useMouse();
@@ -15,6 +15,7 @@ export const Home = () => {
     <div class={styles.Home}>
       <img prop:src={logo} alt="logo" />
       <h1>Solid + Vite + TypeScript</h1>
+      <button onClick={() => fetchDefinition().then(console.log)} />
       <h3>Hello, {userData()?.name ?? 'guest'}!</h3>
       <p>
         Mouse: {x()} x {y()}
