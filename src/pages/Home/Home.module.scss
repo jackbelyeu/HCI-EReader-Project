@@ -1,6 +1,7 @@
 @use '@/variables.scss' as *;
 
 .Home {
+  height: 100%;
   padding: calc($navbar-height + 1rem) 1rem 1rem;
   background: white;
   text-align: center;

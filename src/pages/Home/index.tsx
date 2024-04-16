@@ -1,20 +1,15 @@
 import { Show, createSignal } from 'solid-js';
-import { useCounter, useMouse } from 'solidjs-use';
-import logo from '@/assets/logo.svg?url';
-import pap from '@/assets/pap.txt?raw';
+import { useMouse } from 'solidjs-use';
+import { BookViewer } from '@/components/BookViewer';
 import styles from '@/pages/Home/Home.module.scss';
-import { fetchUser, fetchDefinition, type UserFetchResponse } from '@/services/userService';
+import { fetchDefinition } from '@/services/userService';
 
 export const Home = () => {
   const { x, y } = useMouse();
-  const { count, inc, dec } = useCounter();
-  const [userData, setUserData] = createSignal<UserFetchResponse | undefined>();
   const [showMenu, setShowMenu] = createSignal<boolean>(false);
   const [menuPosition, setMenuPosition] = createSignal<{ x: number; y: number }>({ x: 0, y: 0 });
   const [showDefinition, setShowDefinition] = createSignal<boolean>(false);
   const [definition, setDefinition] = createSignal<string>('');
-
-  fetchUser().then(setUserData);
 
   document.onselectionchange = () => {
     const selection = document.getSelection()?.toString();
@@ -27,17 +22,6 @@ export const Home = () => {
 
   return (
     <div class={styles.Home}>
-      <img prop:src={logo} alt="logo" />
-      <h1>Solid + Vite + TypeScript</h1>
-      <h3>Hello, {userData()?.name ?? 'guest'}!</h3>
-      <p>
-        Mouse: {x()} x {y()}
-      </p>
-      <h3>
-        Counter: {count()}
-        <button onClick={() => dec()}>-</button>
-        <button onClick={() => inc()}>+</button>
-      </h3>
       <Show when={showMenu()}>
         <div
           style={{
@@ -67,7 +51,7 @@ export const Home = () => {
           </Show>
         </div>
       </Show>
-      <div style={{ height: '10rem', overflow: 'scroll' }}>{pap}</div>
+      <BookViewer />
     </div>
   );
 };
