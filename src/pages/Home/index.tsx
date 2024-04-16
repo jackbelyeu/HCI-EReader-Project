@@ -10,12 +10,14 @@ export const Home = () => {
   const [userData, setUserData] = createSignal<UserFetchResponse | undefined>();
   const [showMenu, setShowMenu] = createSignal<boolean>(false);
   const [menuPosition, setMenuPosition] = createSignal<{ x: number; y: number }>({ x: 0, y: 0 });
+  const [showDefinition, setShowDefinition] = createSignal<boolean>(false);
 
   fetchUser().then(setUserData);
 
   document.onselectionchange = () => {
     const selection = document.getSelection()?.toString();
     setShowMenu(!!selection);
+    setShowDefinition(!selection);
     if (selection) {
       setMenuPosition({ x: x(), y: y() });
     }
@@ -35,12 +37,20 @@ export const Home = () => {
         <button onClick={() => inc()}>+</button>
       </h3>
       <Show when={showMenu()}>
-        <div style={{ position: 'absolute', top: `${menuPosition().y}px`, left: `${menuPosition().x}px` }}>
+        <div
+          style={{
+            position: 'absolute',
+            top: `${menuPosition().y}px`,
+            left: `${menuPosition().x}px`,
+            background: 'white',
+          }}
+        >
           <button
             onClick={() => {
               const selection = document.getSelection()?.toString();
               if (selection) {
                 fetchDefinition(selection).then(console.log);
+                setShowDefinition(true);
               } else {
                 console.log('Selecton is undefined');
               }
@@ -48,6 +58,9 @@ export const Home = () => {
           >
             Define
           </button>
+          <Show when={showDefinition()}>
+            <p>Hello, World!</p>
+          </Show>
         </div>
       </Show>
       <div style={{ height: '10rem', overflow: 'scroll' }}>
