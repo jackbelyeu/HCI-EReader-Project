@@ -1,18 +1,21 @@
-import { Card } from '@/components/Card';
+import frankenstein from '@/assets/frankenstein.jpg';
+import prideandprejudice from '@/assets/prideandprejudice.jpg';
 import { ProgressBar } from '@/components/ProgressBar';
 import styles from '@/pages/About/About.module.scss';
 
 export const About = () => (
   <div class={styles.About}>
-    <h1>About</h1>
-    <p>Cards List</p>
-    <div class={styles['cards-list']}>
-      <Card color="black">Card #1</Card>
-      <Card color="darkgray">Card #2</Card>
-      <Card color="brown">Card #3</Card>
-      <Card color="red">Card #4</Card>
-      <Card color="crimson">Card #5</Card>
+    <h1>Your Shelf</h1>
+
+    <div style={{ width: '20rem', height: '30rem', float: 'left' }}>
+      <a href="/">
+        <img src={prideandprejudice} width="100%" height="100%" />
+      </a>
       <ProgressBar yourProgress={50} friendProgress={25} />
+    </div>
+    <div style={{ width: '20rem', height: '30rem', float: 'right' }}>
+      <img src={frankenstein} width="100%" height="100%" />
+      <ProgressBar yourProgress={12} friendProgress={37} />
     </div>
   </div>
 );

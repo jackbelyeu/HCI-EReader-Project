@@ -9,7 +9,7 @@ export const NavbarItems = () => (
     <A href="/" end>
       Home
     </A>
-    <A href="/about">About</A>
+    <A href="/shelf">Bookshelf</A>
   </>
 );
 

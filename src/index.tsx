@@ -30,7 +30,7 @@ render(
   () => (
     <Router root={App}>
       <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
+      <Route path="/shelf" component={About} />
       <Route path="*" component={NotFound} />
     </Router>
   ),
