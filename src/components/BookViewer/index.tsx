@@ -9,8 +9,8 @@ export const BookViewer = () => {
   return (
     <>
       <div id="viewer" />
-      <div id="prev">{'<'}</div>
-      <div id="next">{'>'}</div>
+      <button onClick={() => rendition.prev()}>{'<'}</button>
+      <button onClick={() => rendition.next()}>{'>'}</button>
     </>
   );
 };
