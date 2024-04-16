@@ -52,6 +52,7 @@ export const Home = () => {
         </div>
       </Show>
       <BookViewer />
+      <p>Fish, Hello, Candy</p>
     </div>
   );
 };
