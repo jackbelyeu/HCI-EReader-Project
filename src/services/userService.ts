@@ -10,6 +10,7 @@ export const fetchDefinition = async (wordToDefine: string) => {
   const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${wordToDefine}`, {
     headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
   });
+  const json = await res.json();
   if (!res.ok) throw Error('Failed to fetch definition');
-  return await res.json();
+  return json[0].meanings[0].definitions[0].definition;
 };

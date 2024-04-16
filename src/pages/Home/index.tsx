@@ -11,6 +11,7 @@ export const Home = () => {
   const [showMenu, setShowMenu] = createSignal<boolean>(false);
   const [menuPosition, setMenuPosition] = createSignal<{ x: number; y: number }>({ x: 0, y: 0 });
   const [showDefinition, setShowDefinition] = createSignal<boolean>(false);
+  const [definition, setDefinition] = createSignal<string>('');
 
   fetchUser().then(setUserData);
 
@@ -43,13 +44,15 @@ export const Home = () => {
             top: `${menuPosition().y}px`,
             left: `${menuPosition().x}px`,
             background: 'white',
+            border: '1px solid black',
           }}
         >
           <button
+            style={{ display: 'flex' }}
             onClick={() => {
               const selection = document.getSelection()?.toString();
               if (selection) {
-                fetchDefinition(selection).then(console.log);
+                fetchDefinition(selection).then(setDefinition);
                 setShowDefinition(true);
               } else {
                 console.log('Selecton is undefined');
@@ -59,7 +62,7 @@ export const Home = () => {
             Define
           </button>
           <Show when={showDefinition()}>
-            <p>Hello, World!</p>
+            <p>{definition()}</p>
           </Show>
         </div>
       </Show>
