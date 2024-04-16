@@ -1,6 +1,7 @@
 import { Show, createSignal } from 'solid-js';
 import { useCounter, useMouse } from 'solidjs-use';
 import logo from '@/assets/logo.svg?url';
+import pap from '@/assets/pap.txt?raw';
 import styles from '@/pages/Home/Home.module.scss';
 import { fetchUser, fetchDefinition, type UserFetchResponse } from '@/services/userService';
 
@@ -66,28 +67,7 @@ export const Home = () => {
           </Show>
         </div>
       </Show>
-      <div style={{ height: '10rem', overflow: 'scroll' }}>
-        Fish Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum iure nisi, ea quidem quisquam accusantium
-        voluptatum aliquid odit fugiat atque magnam suscipit ratione debitis voluptatibus sed sit ex molestiae eos!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum iure nisi, ea quidem quisquam accusantium
-        voluptatum aliquid odit fugiat atque magnam suscipit ratione debitis voluptatibus sed sit ex molestiae eos!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum iure nisi, ea quidem quisquam accusantium
-        voluptatum aliquid odit fugiat atque magnam suscipit ratione debitis voluptatibus sed sit ex molestiae eos!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum iure nisi, ea quidem quisquam accusantium
-        voluptatum aliquid odit fugiat atque magnam suscipit ratione debitis voluptatibus sed sit ex molestiae eos!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum iure nisi, ea quidem quisquam accusantium
-        voluptatum aliquid odit fugiat atque magnam suscipit ratione debitis voluptatibus sed sit ex molestiae eos!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum iure nisi, ea quidem quisquam accusantium
-        voluptatum aliquid odit fugiat atque magnam suscipit ratione debitis voluptatibus sed sit ex molestiae eos!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum iure nisi, ea quidem quisquam accusantium
-        voluptatum aliquid odit fugiat atque magnam suscipit ratione debitis voluptatibus sed sit ex molestiae eos!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum iure nisi, ea quidem quisquam accusantium
-        voluptatum aliquid odit fugiat atque magnam suscipit ratione debitis voluptatibus sed sit ex molestiae eos!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum iure nisi, ea quidem quisquam accusantium
-        voluptatum aliquid odit fugiat atque magnam suscipit ratione debitis voluptatibus sed sit ex molestiae eos!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum iure nisi, ea quidem quisquam accusantium
-        voluptatum aliquid odit fugiat atque magnam suscipit ratione debitis voluptatibus sed sit ex molestiae eos!
-      </div>
+      <div style={{ height: '10rem', overflow: 'scroll' }}>{pap}</div>
     </div>
   );
 };
