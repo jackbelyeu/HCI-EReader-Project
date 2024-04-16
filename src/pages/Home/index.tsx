@@ -11,14 +11,14 @@ export const Home = () => {
   const [showDefinition, setShowDefinition] = createSignal<boolean>(false);
   const [definition, setDefinition] = createSignal<string>('');
 
-  document.onselectionchange = () => {
+  document.addEventListener('selectionchange', () => {
     const selection = document.getSelection()?.toString();
     setShowMenu(!!selection);
     setShowDefinition(!selection);
     if (selection) {
       setMenuPosition({ x: x(), y: y() });
     }
-  };
+  });
 
   return (
     <div class={styles.Home}>
