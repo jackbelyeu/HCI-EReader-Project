@@ -10,6 +10,8 @@ export const Home = () => {
   const [menuPosition, setMenuPosition] = createSignal<{ x: number; y: number }>({ x: 0, y: 0 });
   const [showDefinition, setShowDefinition] = createSignal<boolean>(false);
   const [definition, setDefinition] = createSignal<string>('');
+  const [annotation, setAnnotation] = createSignal<string>(''); // Add state variables for annotation text and visibility
+  const [showAnnotation, setShowAnnotation] = createSignal<boolean>(false);
 
   document.addEventListener('selectionchange', () => {
     const selection = document.getSelection()?.toString();
@@ -40,17 +42,33 @@ export const Home = () => {
                 fetchDefinition(selection).then(setDefinition);
                 setShowDefinition(true);
               } else {
-                console.log('Selecton is undefined');
+                console.log('Selection is undefined');
               }
             }}
           >
             Define
           </button>
-          <Show when={showDefinition()}>
-            <p>{definition()}</p>
+          <button style={{ display: 'flex' }} onClick={() => setShowAnnotation(true)}>
+            Annotate
+          </button>
+          <Show when={showAnnotation()}>
+            <textarea
+              value={annotation()}
+              onChange={e => setAnnotation(e.target.value)}
+              onBlur={() => setShowAnnotation(false)} // Hide on blur
+            />
+            <button
+              onClick={() => {
+                /* Implement annotation saving logic */
+              }}
+            >
+              Save
+            </button>
+            <button onClick={() => setShowAnnotation(false)}>Cancel</button>
           </Show>
         </div>
       </Show>
+
       <BookViewer />
       <p>Fish, Hello, Candy</p>
     </div>
