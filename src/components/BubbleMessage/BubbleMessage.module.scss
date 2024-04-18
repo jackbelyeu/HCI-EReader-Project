@@ -1,0 +1,20 @@
+.bubble {
+  display: flex;
+  float: left;
+  clear: both;
+  max-width: 10rem;
+  padding: 10px 15px;
+  border-radius: 20px;
+  background-color: green;
+  color: white;
+}
+
+.yours {
+  display: flex;
+  float: right;
+  max-width: 10rem;
+  padding: 10px 15px;
+  border-radius: 20px;
+  background-color: blue;
+  color: white;
+}

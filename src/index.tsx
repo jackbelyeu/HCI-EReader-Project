@@ -2,6 +2,7 @@ import { Route, Router } from '@solidjs/router';
 import { render } from 'solid-js/web';
 import { App } from '@/App';
 import { About } from '@/pages/About';
+import { Discussion } from '@/pages/Discussion';
 import { Home } from '@/pages/Home';
 import { NotFound } from '@/pages/NotFound';
 
@@ -31,6 +32,7 @@ render(
     <Router root={App}>
       <Route path="/" component={Home} />
       <Route path="/shelf" component={About} />
+      <Route path="/discussion" component={Discussion} />
       <Route path="*" component={NotFound} />
     </Router>
   ),

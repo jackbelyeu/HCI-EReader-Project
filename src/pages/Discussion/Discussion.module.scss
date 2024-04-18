@@ -1,0 +1,9 @@
+@use '@/variables.scss' as *;
+
+.Discussion {
+  height: 100%;
+  padding: calc($navbar-height + 1rem) 1rem 1rem;
+  background: dimgray;
+  color: white;
+  text-align: center;
+}
