@@ -10,6 +10,7 @@ export const NavbarItems = () => (
       Home
     </A>
     <A href="/shelf">Bookshelf</A>
+    <A href="/annotation">Annotations</A>
   </>
 );
 
