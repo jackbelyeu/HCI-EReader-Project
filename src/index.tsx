@@ -1,10 +1,10 @@
 import { Route, Router } from '@solidjs/router';
 import { render } from 'solid-js/web';
 import { App } from '@/App';
+import { BookViewer } from '@/components/BookViewer';
 import { About } from '@/pages/About';
 import { Annotation } from '@/pages/Annotation';
 import { Discussion } from '@/pages/Discussion';
-import { Home } from '@/pages/Home';
 import { NotFound } from '@/pages/NotFound';
 
 /* Extend Solid JSX */
@@ -31,7 +31,7 @@ if (import.meta.env.DEV && new URLSearchParams(location.search).has('mock'))
 render(
   () => (
     <Router root={App}>
-      <Route path="/" component={Home} />
+      <Route path="/" component={BookViewer} />
       <Route path="/shelf" component={About} />
       <Route path="/discussion" component={Discussion} />
       <Route path="/annotation" component={Annotation} />
