@@ -1,12 +1,29 @@
 import ePub from 'epubjs';
+import { createEffect, createSignal } from 'solid-js';
 import prideAndPrejudice from '@/assets/prideandprejudice.epub?url';
 import styles from '@/components/BookViewer/BookViewer.module.scss';
 
 export const BookViewer = () => {
+  const [flow, setFlow] = createSignal<boolean>(false);
+
   const book = ePub(prideAndPrejudice);
-  const rendition = book.renderTo('viewer', { flow: 'paginated', width: '900', height: '600' });
-  // const rendition = book.renderTo('viewer', { flow: 'paginated', width: '900', height: '600' }); flow: 'scrolled-doc' for scroll mode
+  let rendition = book.renderTo('viewer', {
+    flow: flow() ? 'paginated' : 'scrolled-doc',
+    width: '900',
+    height: '600',
+  });
   rendition.display();
+
+  createEffect(() => {
+    rendition.destroy();
+    rendition = book.renderTo('viewer', {
+      flow: flow() ? 'paginated' : 'scrolled-doc',
+      width: '900',
+      height: '600',
+    });
+    rendition.display();
+    console.log('toggle switched');
+  });
 
   return (
     <>
@@ -14,6 +31,7 @@ export const BookViewer = () => {
         <div id="viewer" />
         <button onClick={() => rendition.prev()}>{'<'}</button>
         <button onClick={() => rendition.next()}>{'>'}</button>
+        <button onClick={() => setFlow(p => !p)}>Toggle Flow</button>
       </div>
     </>
   );
