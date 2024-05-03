@@ -5,20 +5,4 @@
   padding: calc($navbar-height + 1rem) 1rem 1rem;
   background: white;
   text-align: center;
-
-  & > img {
-    width: 25%;
-  }
-
-  & > h1 {
-    margin: 0;
-  }
-
-  & > h3 > button {
-    width: 4rem;
-    margin: 0.5rem;
-    border-radius: 4px;
-    background: rgb(184, 215, 255);
-    font-size: 1.5rem;
-  }
 }

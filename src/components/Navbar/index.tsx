@@ -11,6 +11,7 @@ export const NavbarItems = () => (
     </A>
     <A href="/shelf">Bookshelf</A>
     <A href="/annotation">Annotations</A>
+    <A href="/beta">[Beta]</A>
   </>
 );
 

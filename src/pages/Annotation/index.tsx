@@ -30,7 +30,6 @@ export const Annotation = () => {
     <div class={styles.Annotation}>
       <h1>Literary Annotations</h1>
       <div>
-        // eslint-disable-next-line solid/prefer-for
         <For each={booksWithAnnotations}>
           {book => (
             <div>

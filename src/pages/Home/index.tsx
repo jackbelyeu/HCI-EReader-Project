@@ -1,6 +1,5 @@
 import { Show, createSignal } from 'solid-js';
 import { useMouse } from 'solidjs-use';
-import { BookViewer } from '@/components/BookViewer';
 import styles from '@/pages/Home/Home.module.scss';
 import { fetchDefinition } from '@/services/userService';
 
@@ -46,14 +45,12 @@ export const Home = () => {
           >
             Define
           </button>
-          <button style={{ display: 'flex' }}>Annotate</button>
           <Show when={showDefinition()}>
             <p>{definition()}</p>
           </Show>
         </div>
       </Show>
-      <BookViewer />
-      <p>Fish, Hello, Candy</p>
+      <div>Fish, Hello, Candy</div>
     </div>
   );
 };
