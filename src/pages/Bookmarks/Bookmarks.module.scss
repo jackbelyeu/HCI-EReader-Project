@@ -5,5 +5,27 @@
   padding: calc($navbar-height + 1rem) 1rem 1rem;
   background: dimgray;
   color: white;
+  text-align: left;
+}
+
+.BookContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.Book {
+  width: fit-content;
+  margin-bottom: 20px;
+  padding: 10px;
+
+  border: 1px solid #070101;
+  border-radius: 5px;
+  background-color: #1e1c1c;
+  font-size: 1rem;
   text-align: center;
+}
+
+.Book h2 {
+  margin-top: 0;
 }
