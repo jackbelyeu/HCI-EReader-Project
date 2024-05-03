@@ -4,6 +4,7 @@ import { App } from '@/App';
 import { BookViewer } from '@/components/BookViewer';
 import { About } from '@/pages/About';
 import { Annotation } from '@/pages/Annotation';
+import { Bookmarks } from '@/pages/Bookmarks';
 import { Discussion } from '@/pages/Discussion';
 import { Home } from '@/pages/Home';
 import { NotFound } from '@/pages/NotFound';
@@ -36,6 +37,7 @@ render(
       <Route path="/shelf" component={About} />
       <Route path="/discussion" component={Discussion} />
       <Route path="/annotation" component={Annotation} />
+      <Route path="/Bookmarks" component={Bookmarks} />
       <Route path="/beta" component={Home} />
       <Route path="*" component={NotFound} />
     </Router>
