@@ -19,9 +19,7 @@ export const About = () => (
     <div style={{ width: '20rem', height: '30rem', float: 'right' }}>
       <img src={frankenstein} width="100%" height="100%" />
       <ProgressBar yourProgress={12} friendProgress={37} />
-      <a href="/discussion">
-        <button>Discuss this book</button>
-      </a>
+      <button>Discuss this book</button>
     </div>
   </div>
 );

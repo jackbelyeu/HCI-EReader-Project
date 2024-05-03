@@ -1,5 +1,18 @@
 .Bar {
-  width: '100%';
-  height: '3rem';
+  width: 100%;
+  height: 3 rem;
   background-color: black;
+
+  & > .mainBar {
+    background-color: blue;
+
+    &:hover + .friendBar {
+      display: block;
+    }
+  }
+
+  & > .friendBar {
+    display: none;
+    background-color: green;
+  }
 }
