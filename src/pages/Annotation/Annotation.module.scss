@@ -1,9 +1,36 @@
 @use '@/variables.scss' as *;
 
 .Annotation {
+  max-width: 800px;
   height: 100%;
+  margin: 20px auto;
   padding: calc($navbar-height + 1rem) 1rem 1rem;
-  background: dimgray;
-  color: white;
+  border-radius: 8px;
+  background: white; // Changed background to white
+  color: rgb(204, 16, 16); // Changed text color to red
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  font-family: 'Arial', sans-serif;
   text-align: center;
+
+  h1 {
+    margin-bottom: 0.5rem;
+    color: rgb(0, 123, 255); // Specific blue color for the title
+    font-size: 2rem;
+  }
+
+  p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  blockquote {
+    margin: 20px 0;
+    padding: 1rem;
+    border-left: 4px solid rgb(202, 16, 16); // Using the red color for the vertical bar
+    background-color: rgba(202, 16, 16, 0.1); // Light red background for emphasis
+    font-style: italic;
+    opacity: 0.9;
+  }
 }
