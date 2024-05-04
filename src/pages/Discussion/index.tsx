@@ -9,14 +9,15 @@ export const Discussion = () => {
       name: 'Zoe',
     },
     {
-      text: 'can you believe elizabeth and darcy invented the "enemies to lovers" trope and have been the most iconic power couple to exist ever since ',
+      text: 'Can you believe Elizabeth and Darcy invented the "enemies to lovers" trope and have been the most iconic power couple ever since?',
     },
   ]);
   const [inputText, setInputText] = createSignal('');
 
   const handleSubmit = () => {
-    if (inputText()) {
-      setMessages([...messages(), { text: inputText(), yours: true }]);
+    const trimmedText = inputText().trim();
+    if (trimmedText) {
+      setMessages([...messages(), { text: trimmedText, yours: true }]);
       setInputText('');
     }
   };
@@ -24,13 +25,20 @@ export const Discussion = () => {
   return (
     <div class={styles.Discussion}>
       <h1>Pride and Prejudice Discussion</h1>
-      <div style={{ height: '80%', 'overflow-y': 'scroll' }}>
+      <div class={styles.messagesContainer}>
         <For each={messages()}>
           {(message, index) => <BubbleMessage message={message.text} yours={message.yours} name={message.name} />}
         </For>
       </div>
-      <input value={inputText()} onInput={e => setInputText(e.target.value)} />
-      <button onClick={handleSubmit}>Submit</button>
+      <input
+        class={styles.input}
+        value={inputText()}
+        onInput={e => setInputText(e.currentTarget.value)}
+        placeholder="Type your message here..."
+      />
+      <button class={styles.submitButton} onClick={handleSubmit}>
+        Submit
+      </button>
     </div>
   );
 };
