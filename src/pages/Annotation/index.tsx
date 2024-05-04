@@ -1,7 +1,6 @@
-import { For } from 'solid-js';
+import { createSignal, For } from 'solid-js';
 import styles from '@/pages/Annotation/Annotation.module.scss';
 
-// Define an array of books with annotations
 const booksWithAnnotations = [
   {
     title: '1984',
@@ -16,16 +15,15 @@ const booksWithAnnotations = [
     annotation:
       "Atticus Finch teaches his daughter Scout the importance of empathy, a central theme of the novel. This perspective is crucial for understanding the racial injustices depicted in the story, as it advocates for seeing the world through others' experiences.",
   },
-  {
-    title: 'The Great Gatsby',
-    passage: 'So we beat on, boats against the current, borne back ceaselessly into the past.',
-    annotation:
-      'The novel’s final line metaphorically describes Gatsby’s futile attempt to recreate his past with Daisy. It serves as a broader commentary on the American Dream and the struggle of Gatsby’s generation to achieve its idealized goals amidst the realities of American society.',
-  },
 ];
 
-// Define the Annotation functional component
 export const Annotation = () => {
+  const [showFriendAnnotation, setShowFriendAnnotation] = createSignal(false);
+
+  const revealFriendAnnotation = () => {
+    setShowFriendAnnotation(true);
+  };
+
   return (
     <div class={styles.Annotation}>
       <h1>Literary Annotations</h1>
@@ -42,6 +40,19 @@ export const Annotation = () => {
           )}
         </For>
       </div>
+      <button onClick={revealFriendAnnotation}>Watch your friend's annotation</button>
+      {showFriendAnnotation() && (
+        <div class={styles.FriendAnnotation}>
+          <h2>The Great Gatsby</h2>
+          <blockquote>
+            <b>So we beat on, boats against the current, borne back ceaselessly into the past :</b>
+            <br />
+            The novel’s final line metaphorically describes Gatsby’s futile attempt to recreate his past with Daisy. It
+            serves as a broader commentary on the American Dream and the struggle of Gatsby’s generation to achieve its
+            idealized goals amidst the realities of American society.
+          </blockquote>
+        </div>
+      )}
     </div>
   );
 };

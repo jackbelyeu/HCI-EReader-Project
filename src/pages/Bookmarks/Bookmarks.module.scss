@@ -31,3 +31,8 @@
 .Book h2 {
   margin-top: 0;
 }
+
+.Book ul {
+  padding-left: 0; /* Remove default left padding */
+  list-style-type: none; /* Remove bullet points */
+}
