@@ -1,9 +1,52 @@
 @use '@/variables.scss' as *;
 
 .Discussion {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
   padding: calc($navbar-height + 1rem) 1rem 1rem;
-  background: dimgray;
-  color: white;
+  border-radius: 10px;
+  background: #2f4f4f; /* Dark slate grey for a deeper tone */
+  color: #f0f8ff; /* Alice blue for soft, readable text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
+
+.input {
+  width: 90%;
+  margin-top: auto; /* Ensures it sticks at the bottom */
+  padding: 0.8rem;
+  border: 2px solid #708090; /* Slight grey for a subtle border */
+  border-radius: 20px;
+}
+
+.submitButton {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 20px;
+  background-color: #4682b4; /* Steel blue */
+  color: white;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+
+  &:hover {
+    background-color: #5f9ea0; /* Cadet blue */
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+/* Scrollable area for messages */
+.messagesContainer {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
