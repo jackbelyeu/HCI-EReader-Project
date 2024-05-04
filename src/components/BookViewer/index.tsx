@@ -28,8 +28,8 @@ export const BookViewer = () => {
   return (
     <>
       <div class={styles.BookViewer}>
-        <div id="viewer" />
         <button onClick={() => rendition.prev()}>{'<'}</button>
+        <div id="viewer" />
         <button onClick={() => rendition.next()}>{'>'}</button>
         <button onClick={() => setFlow(p => !p)}>Toggle Flow</button>
       </div>
